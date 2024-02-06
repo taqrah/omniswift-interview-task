@@ -1,0 +1,52 @@
+:root {
+  --Green: hsla(132, 51%, 52%, 1);
+  --Heading: hsla(0, 0%, 20%, 1);
+  --Disabled: hsla(205, 12%, 71%, 1);
+  --Background: hsla(0, 0%, 97%, 1);
+  --White: hsla(0, 0%, 100%, 1);
+  --Subheading: hsla(0, 0%, 38%, 1);
+  --Text: hsla(0, 0%, 20%, 1);
+}
+
+body {
+  font-family: 'Lato', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: var(--Background);
+}
+
+#app {
+  max-width: 80rem;
+  margin-inline: auto;
+  padding: 2rem;
+}
+
+main {
+  display: grid;
+  gap: 2rem;
+}
+
+.main-heading {
+  color: var(--Heading);
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  font-weight: 900;
+}
+
+.filter {
+  background-color: var(--White);
+  border-radius: 0.75rem;
+  padding: 1rem;
+}
+
+.filter__heading {
+  color: var(--Subheading);
+  font-size: 1.5rem;
+}
+
+.filter__form {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1rem;
+}

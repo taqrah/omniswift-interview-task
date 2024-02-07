@@ -8,6 +8,7 @@
   --Text: hsl(0 0% 20%);
   --Table-Head-Bg: hsl(240 9% 98%);
   --Table-Border: hsl(0 0% 93%);
+  --Hover: hsl(132 51% 42%);
 }
 
 /* General Styles */
@@ -16,7 +17,8 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  background-color: var(--Background);
+  /* background-color: var(--Background); */
+  background-color: black;
 }
 
 #root {
@@ -34,7 +36,7 @@ main {
 
 .main-heading {
   color: var(--Heading);
-  font-size: 2.5rem;
+  font-size: clamp(1rem, calc(1rem + 2vw), 2.5rem);
   margin-bottom: 3.5rem;
   font-weight: 900;
 }
@@ -42,41 +44,70 @@ main {
 /* Form Styles */
 .filter {
   background-color: var(--White);
-  border-radius: 0.75rem;
-  padding: 3rem 2rem;
+  border-radius: 0.35rem;
+  padding-block: clamp(2rem, calc(1rem + 1vw), 3rem);
+  padding-inline: clamp(1rem, calc(0.75rem + 1vw), 2rem);
 }
 
 .filter__heading {
   color: var(--Subheading);
-  font-size: 1.5rem;
-  margin-bottom: 3.5rem;
+  font-size: clamp(1rem, calc(1rem + 1vw), 1.5rem);
+  margin-bottom: clamp(2rem, calc(1.65rem + 2vw), 3.5rem);
 }
 
 .filter__form {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
-  gap: 3rem;
+  grid-template-columns: repeat(auto-fill, minmax(13rem, 1fr));
+  gap: clamp(1.5rem, calc(1rem + 1vw), 3rem);
+}
+
+.filter__form-group {
+  position: relative;
+  color: var(--Disabled);
+}
+
+.filter__form-label {
+  background-color: var(--White);
+  position: absolute;
+  padding-inline: 0.3rem;
+  top: -0.8rem;
+  left: 0.75rem;
 }
 
 .filter__form-input {
   width: 100%;
-  padding: 1rem; 
+  padding: 0.75rem;
   border: 1px solid var(--Disabled);
   border-radius: 0.5rem;
+  outline-color: var(--Green);
+}
+
+.filter__form-input:focus + .filter__form-label {
+  color: var(--Green);
 }
 
 .filter__form-btn {
-  padding: 1rem; 
+  padding: 0.75rem;
 }
 
 /* Table styles */
 .container {
   background-color: var(--White);
   border-radius: 0.35rem;
-  padding: 3rem 2rem;
+  padding: 3rem 2.5rem 3rem 2rem;
+  min-width: 100%;
+}
+
+@media (max-width: 700px) {
+  .container {
+    padding: 3rem 1rem 3rem 1rem;
+  }
+}
+
+.container-inner {
+  padding-right: 1rem;
   max-height: 31.25rem;
-  /* min-width: 62.5rem; */
-  overflow: scroll;
+  overflow-y: scroll;
 }
 
 .table {
@@ -97,23 +128,32 @@ th,
 td {
   padding: 0.75rem 1rem;
   text-transform: capitalize;
+  text-wrap: nowrap;
 }
 
 th {
   text-align: left;
 }
+th:last-of-type {
+  text-align: center;
+}
 
 /* Scrollbar styles */
-.container::-webkit-scrollbar {
-  width: 0.5rem;
+.container-inner::-webkit-scrollbar {
+  width: 1.5rem;
 }
-.container::-webkit-scrollbar-thumb {
+.container-inner::-webkit-scrollbar-thumb {
   background-color: var(--Green);
-  border-radius: 0.25rem;
+  border: 0.45rem solid var(--Table-Head-Bg);
+  border-radius: 100vh;
 }
-.container::-webkit-scrollbar-track {
+.container-inner::-webkit-scrollbar-thumb:hover {
+  background-color: var(--Hover);
+}
+.container-inner::-webkit-scrollbar-track {
   background-color: var(--Table-Head-Bg);
-  /* border: 2rem solid var(--White); */
 }
 
-
+.download-btn {
+  width: 100%;
+}

@@ -116,11 +116,11 @@ a:not([class]) {
   transition: background-color 0.3s;
 }
 .btn:hover {
-  background-color: hsl(132 51% 42%);
+  background-color: var(--Hover);
 }
 
 .grid {
   display: grid;
   place-items: center;
-  min-height: 50vh;
+  min-height: 60vh;
 }

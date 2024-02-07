@@ -1,0 +1,24 @@
+
+.error {
+   display: grid;
+   place-items: center;
+   justify-items: center;
+   gap: 1rem;
+}
+.error__text {
+   max-width: 50ch;
+   text-align: center;
+}
+.error__btn {
+   background-color: var(--Green);
+   color: var(--White);
+   padding: 0.5rem 1rem;
+   border: none;
+   border-radius: 0.1rem;
+   cursor: pointer;
+   transition: background-color 0.3s;
+ }
+ .error__btn:hover {
+   background-color: var(--Hover);
+ }
+ 

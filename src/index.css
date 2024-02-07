@@ -1,13 +1,16 @@
 :root {
-  --Green: hsla(132, 51%, 52%, 1);
-  --Heading: hsla(0, 0%, 20%, 1);
-  --Disabled: hsla(205, 12%, 71%, 1);
-  --Background: hsla(0, 0%, 97%, 1);
-  --White: hsla(0, 0%, 100%, 1);
-  --Subheading: hsla(0, 0%, 38%, 1);
-  --Text: hsla(0, 0%, 20%, 1);
+  --Green: hsl(132 51% 52%);
+  --Heading: hsl(0 0% 20%);
+  --Disabled: hsl(205 12% 71%);
+  --Background: hsl(0 0% 97%);
+  --White: hsl(0 0% 100%);
+  --Subheading: hsl(0 0% 38%);
+  --Text: hsl(0 0% 20%);
+  --Table-Head-Bg: hsl(240 9% 98%);
+  --Table-Border: hsl(0 0% 93%);
 }
 
+/* General Styles */
 body {
   font-family: 'Lato', sans-serif;
   margin: 0;
@@ -16,10 +19,12 @@ body {
   background-color: var(--Background);
 }
 
-#app {
+#root {
   max-width: 80rem;
   margin-inline: auto;
-  padding: 2rem;
+  padding-inline: clamp(1rem, calc(1rem + 2vw), 2rem);
+  padding-block: 3.5rem;
+  min-height: 100vh;
 }
 
 main {
@@ -30,23 +35,85 @@ main {
 .main-heading {
   color: var(--Heading);
   font-size: 2.5rem;
-  margin-bottom: 1rem;
+  margin-bottom: 3.5rem;
   font-weight: 900;
 }
 
+/* Form Styles */
 .filter {
   background-color: var(--White);
   border-radius: 0.75rem;
-  padding: 1rem;
+  padding: 3rem 2rem;
 }
 
 .filter__heading {
   color: var(--Subheading);
   font-size: 1.5rem;
+  margin-bottom: 3.5rem;
 }
 
 .filter__form {
   display: grid;
-  gap: 1rem;
-  margin-top: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+  gap: 3rem;
 }
+
+.filter__form-input {
+  width: 100%;
+  padding: 1rem; 
+  border: 1px solid var(--Disabled);
+  border-radius: 0.5rem;
+}
+
+.filter__form-btn {
+  padding: 1rem; 
+}
+
+/* Table styles */
+.container {
+  background-color: var(--White);
+  border-radius: 0.35rem;
+  padding: 3rem 2rem;
+  max-height: 31.25rem;
+  /* min-width: 62.5rem; */
+  overflow: scroll;
+}
+
+.table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+thead {
+  background-color: var(--Table-Head-Bg);
+}
+
+.table-row {
+  border-bottom: 1px solid var(--Table-Border);
+  font-size: 0.875rem;
+}
+
+th,
+td {
+  padding: 0.75rem 1rem;
+  text-transform: capitalize;
+}
+
+th {
+  text-align: left;
+}
+
+/* Scrollbar styles */
+.container::-webkit-scrollbar {
+  width: 0.5rem;
+}
+.container::-webkit-scrollbar-thumb {
+  background-color: var(--Green);
+  border-radius: 0.25rem;
+}
+.container::-webkit-scrollbar-track {
+  background-color: var(--Table-Head-Bg);
+  /* border: 2rem solid var(--White); */
+}
+
+

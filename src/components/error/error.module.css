@@ -5,6 +5,11 @@
    justify-items: center;
    gap: 1rem;
 }
+.error__heading {
+   font-size: clamp(1rem, calc(1rem + 2vw), 3rem);
+   font-weight: 700;
+   color: var(--Heading);
+}
 .error__text {
    max-width: 50ch;
    text-align: center;

@@ -49,9 +49,9 @@ function Filter({
             onChange={(e) => setAge(e.target.value)}
           >
             <option value='default'>Select Age</option>
-            {data.age.map((age, index) => (
-              <option value={age} key={index}>
-                {age}
+            {data.age.map((age) => (
+              <option value={age.age} key={age.id}>
+                {age.age}
               </option>
             ))}
           </select>
@@ -85,11 +85,11 @@ function Filter({
             onChange={(e) => setLevel(e.target.value)}
           >
             <option value='default'>Select Level</option>
-            <option value='100 Level'>100 Level</option>
-            <option value='200 Level'>200 Level</option>
-            <option value='300 Level'>300 Level</option>
-            <option value='400 Level'>400 Level</option>
-            <option value='500 Level'>500 Level</option>
+            {data.level.map((level) => (
+              <option value={level.level} key={level.id}>
+                {level.level}
+              </option>
+            ))}
           </select>
           <label htmlFor='level' className='filter__form-label'>
             Level
@@ -103,8 +103,11 @@ function Filter({
             onChange={(e) => setGender(e.target.value)}
           >
             <option value='default'>Select gender</option>
-            <option value='male'>Male</option>
-            <option value='female'>Female</option>
+            {data.gender.map((gender) => (
+              <option value={gender.gender} key={gender.id}>
+                {gender.gender}
+              </option>
+            ))}
           </select>
           <label htmlFor='gender' className='filter__form-label'>
             Gender

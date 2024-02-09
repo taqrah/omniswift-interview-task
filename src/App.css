@@ -124,3 +124,7 @@ a:not([class]) {
   place-items: center;
   min-height: 60vh;
 }
+
+.no-results {
+  text-align: center;
+}

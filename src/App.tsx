@@ -4,6 +4,7 @@ import { ApiResponse, Student } from './types';
 import Filter from './components/Filter';
 import Loader from './components/loader/Loader';
 import ErrorUI from './components/error/ErrorUI';
+import Table from './components/Table';
 
 function App() {
   const [students, setStudents] = useState<Student[]>([]);
@@ -61,53 +62,13 @@ function App() {
             setFilteredStudents={setFilteredStudents}
             setNoResults={setNoResults}
           />
-          <div className='container'>
-            <div className='container-inner'>
-              {noResults ? (
-                <div>
-                  <h3>No Results found for your search</h3>
-                </div>
-              ) : (
-                <table className='table'>
-                  <thead>
-                    <tr>
-                      <th>S/N</th>
-                      <th>Surname</th>
-                      <th>First Name</th>
-                      <th>Age</th>
-                      <th>Gender</th>
-                      <th>Level</th>
-                      <th>State</th>
-                      <th>Action</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {filteredStudents.map((student, index) => (
-                      <tr key={index} className='table-row'>
-                        <td>{student.id}</td>
-                        <td>{student.firstname}</td>
-                        <td>{student.surname}</td>
-                        <td>{student.age}</td>
-                        <td>{student.gender}</td>
-                        <td>{student.level}</td>
-                        <td>
-                          {student.state !== 'Abuja'
-                            ? `${student.state} state`
-                            : student.state}
-                          {/* simple check to avoid adding 'state' to Abuja */}
-                        </td>
-                        <td>
-                          <button type='button' className='btn download-btn'>
-                            Download Result
-                          </button>
-                        </td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              )}
+          {noResults ? (
+            <div className='container'>
+              <h3 className='no-results'>No Results found for your search</h3>
             </div>
-          </div>
+          ) : (
+            <Table filteredStudents={filteredStudents} />
+          )}
         </main>
       )}
     </>

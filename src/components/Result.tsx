@@ -33,7 +33,7 @@ function Result({ data }: { data: ResultResponse }) {
   // Will find a way to generate better quality Pdfs
 
   return (
-    <section id='paper' className='paper -hidden'>
+    <section id='paper' className='paper visually-hidden'>
       <header className='paper__header'>
         <img src={logo} alt='Fremont college logo' />
         <article className='paper__header-content'>

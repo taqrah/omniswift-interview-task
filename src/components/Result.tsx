@@ -1,37 +1,9 @@
-// import { useEffect, useState } from 'react';
 import logo from '../assets/Logo.png';
 import passport from '../assets/Passport.png';
-// import { jsPDF } from 'jspdf';
-// import html2canvas from 'html2canvas';
 import { ResultResponse } from '../types';
 
 function Result({ data }: { data: ResultResponse }) {
-  // const [processing, setProcessing] = useState(false);
-
-  // // console.log(data);
-  // const downloadResult = async () => {
-  //   const capture = document.getElementById('paper');
-  //   setProcessing(true);
-
-  //   if (capture !== null) {
-  //     await html2canvas(capture).then((canvas) => {
-  //       const imgData = canvas.toDataURL('image/png');
-  //       const doc = new jsPDF({
-  //         orientation: 'portrait',
-  //         unit: 'mm',
-  //         format: 'a4',
-  //       });
-  //       const pageWidth = doc.internal.pageSize.getWidth();
-  //       const pageHeight = doc.internal.pageSize.getHeight();
-  //       doc.addImage(imgData, 'PNG', 0, 0, pageWidth, pageHeight);
-  //       setProcessing(false);
-  //       doc.save(`${data.data.firstname}-result.pdf`);
-  //     });
-  //   }
-  // };
-
-  // Will find a way to generate better quality Pdfs
-
+  
   return (
     <section id='paper' className='paper visually-hidden'>
       <header className='paper__header'>

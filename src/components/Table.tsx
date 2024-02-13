@@ -113,15 +113,11 @@ function Table({ filteredStudents }: { filteredStudents: Student[] }) {
                   <td>{student.age}</td>
                   <td>{student.gender}</td>
                   <td>
-                    {student.level.toString().length === 1
-                      ? `${student.level}00 level`
-                      : student.level}
-                  </td>{' '}
-                  {/* Api returns 3 for one of the student levels this check is to fix that */}
+                    {student.level.toString().length === 1 ? `${student.level}00 level` : student.level}
+                    {/* Api returns 3 for one of the student levels this check is to fix that */}
+                  </td>
                   <td>
-                    {student.state !== 'Abuja'
-                      ? `${student.state} state`
-                      : student.state}
+                    {student.state !== 'Abuja' ? `${student.state} state` : student.state}
                     {/* simple check to avoid adding 'state' to Abuja */}
                   </td>
                   <td>
@@ -131,9 +127,7 @@ function Table({ filteredStudents }: { filteredStudents: Student[] }) {
                       onClick={() => getResult(student.id)}
                       disabled={loading[student.id]}
                     >
-                      {loading[student.id]
-                        ? 'Downloading...'
-                        : 'Download Result'}
+                      {loading[student.id] ? 'Downloading...' : 'Download Result'}
                     </button>
                   </td>
                 </tr>

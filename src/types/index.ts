@@ -34,27 +34,6 @@ export type ResultResponse = {
         credit_unit: number;
         grade: string;
         total_point: number;
-      },
-      {
-        coursecode: string;
-        title: string;
-        credit_unit: number;
-        grade: string;
-        total_point: number;
-      },
-      {
-        coursecode: string;
-        title: string;
-        credit_unit: number;
-        grade: string;
-        total_point: number;
-      },
-      {
-        coursecode: string;
-        title: string;
-        credit_unit: number;
-        grade: string;
-        total_point: number;
       }
     ];
     cummulative: {
